@@ -44,7 +44,8 @@ for epoch in range(1, 101):
 model.eval()
 with torch.no_grad():
     testTensor = torch.tensor(test_data, dtype=torch.float32).to(device)
-    sample = testTensor[7]
+    sample = testTensor[7] # the 7th data on test.csv
     prob = model(sample).item()
     pred = 1 if prob >= 0.5 else 0
-    print(f"{'Terdiagnosis Kanker' if pred else 'Tidak Terdiagnosis Kanker'}")
+    print(f"{'Cancer' if pred else 'Not Cancer'}")
+
